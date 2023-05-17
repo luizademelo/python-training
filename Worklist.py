@@ -1,3 +1,8 @@
+# acima de Queue o codigo é do professor
+# aparentemente tem diversos bugs na implementação
+# por exemplo, Node.n é tanto um numero (0), quanto o proximo nó
+# entao pode dar errado a aplicação de hasMore()
+
 class Worklist:
   """Describes a simple list data type."""
 
