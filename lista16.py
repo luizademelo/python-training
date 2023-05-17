@@ -23,7 +23,23 @@ class List:
        len += 1
        cell = cell.tail
     return len
+    
+  def append1(self, l): 
+      new_list = List(0)
+      cell = self.start
+      while cell != 0:
+          new_list = new_list.cons(cell.head)
+          cell = cell.tail 
+      cell = l.start
+      while cell != 0:
+          new_list = new_list.cons(cell.head)
+          cell = cell.tail
+      return new_list.reverse()
+  
+  
+  def append(self,l): 
 
+  
   def reverse(self): 
     reversed_list = List(0)
     cell = self.start
@@ -85,7 +101,11 @@ class List:
 
 def test():
   a = List(0)
-  b = a.cons(1)
+  a = a.cons(9)
+  a = a.cons(6)
+  a = a.cons(4)
+  b = List(0)
+  b = b.cons(1)
   b = b.cons(3)
   b = b.cons(5)
   b = b.cons(2)
@@ -94,7 +114,6 @@ def test():
   e = d.cons(False)
   print("List a = ", a.__str__(), " Length(a) = ", a.length())
   print( "List b = ", b.__str__(), " Length(b) = ", b.length())
-  print(type(b.length()))
-  print(b.sort().__str__())
+  print(a.append(b))
 
 test()
