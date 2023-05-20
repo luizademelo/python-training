@@ -85,16 +85,50 @@ class Queue:
             string += str(cell.e) + ' '
             cell = cell.n
         return string
-        
+
+class PriorityQueue:
+    def __init__(self):
+        self.top = Node()
+        self.tail = Node()
+    
+    def add(self,element): 
+        if self.top.e == '':
+            self.top.e = element
+            self.top.n = 0
+            self.tail = self.top
+        else: 
+            new = Node()
+            new.e = element
+            new.n = 0
+            self.tail.n = new
+            self.tail = new
+    
+    def remove(self): 
+        node = self.top
+        menor = self.top.e
+        while node != 0: 
+            node = node.n 
+            if node == 0: break
+            if node.e < menor: 
+                menor = node.e
+        node = self.top
+        if menor == self.top.e: 
+            self.top = self.top.n
+            return menor
+            
+        while node != 0: 
+           if node.n.e == menor: 
+               node.n = node.n.n 
+               break
+        return menor
+       
 def test():
-    q = Queue()
-    q.add(5)
+    q = PriorityQueue()
     q.add(6)
+    q.add(5)
     q.add(7)
     print(q)
     print(q.remove())
     print(q.remove())
-    print(q.remove())
-    print(q.hasMore())
     
 test()
